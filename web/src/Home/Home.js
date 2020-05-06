@@ -70,7 +70,7 @@ export default class HomeComponent extends Component {
             <Header size='medium'>I don't have a link named <em>"{this.urlParams.get("customUrl")}"</em> in my database, would
             you like to create one?</Header>
           ) :
-            <Header size='huge'>Simplify your links</Header>
+            <Header class="header1" size='large'>Simplify your links</Header>
           }
           <Form onSubmit={this.handleURLSubmit} autoComplete="off">
             <Form.Field>
@@ -79,7 +79,7 @@ export default class HomeComponent extends Component {
                 <MediaQuery query="(min-width: 768px)">
                   <Select options={options} placeholder='Settings' value={this.state.usedSettings} onChange={this.onSettingsChange} multiple />
                 </MediaQuery>
-                <Button type='submit'>Shorten<Icon name="arrow right" /></Button>
+                <Button className="send" type='submit'>Shorten<Icon name="arrow right" /></Button>
               </Input>
             </Form.Field>
             <MediaQuery query="(max-width: 767px)">

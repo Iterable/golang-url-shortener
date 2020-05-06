@@ -4,6 +4,8 @@ import { Segment, Header, Form, Input, Card, Button } from 'semantic-ui-react'
 import util from '../util/util'
 import CustomCard from '../Card/Card'
 
+import './style.css'
+
 export default class LookupComponent extends Component {
     state = {
         links: [],
@@ -35,7 +37,7 @@ export default class LookupComponent extends Component {
                     <Header size='huge'>URL Lookup</Header>
                     <Form onSubmit={this.handleURLSubmit}>
                         <Form.Field>
-                            <Input required size='big' ref={input => this.urlInput = input} action={{ icon: 'arrow right', labelPosition: 'right', content: 'Lookup' }} type='text' label={this.state.displayURL + "/"} onChange={this.handleURLChange} name='url' placeholder={"short url"} autoComplete="off" />
+                            <Input className='lookup-form' required size='big' ref={input => this.urlInput = input} action={{ icon: 'arrow right', labelPosition: 'right', content: 'Lookup' }} type='text' label={this.state.displayURL + "/"} onChange={this.handleURLChange} name='url' placeholder={"short url"} autoComplete="off" />
                         </Form.Field>
                     </Form>
                 </Segment>

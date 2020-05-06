@@ -6,12 +6,15 @@ import toastr from 'toastr'
 import 'semantic-ui-css/semantic.min.css';
 import 'toastr/build/toastr.css';
 
-import About from './About/About'
 import Home from './Home/Home'
-import ShareX from './ShareX/ShareX'
 import Lookup from './Lookup/Lookup'
 import Recent from './Recent/Recent'
 import Visitors from './Visitors/Visitors'
+import Logo from './Components/Logo'
+
+
+import './style.css'
+
 
 import util from './util/util'
 export default class BaseComponent extends Component {
@@ -153,28 +156,31 @@ export default class BaseComponent extends Component {
         return (
             <HashRouter>
                 <Container style={{ padding: "15px 0" }}>
+
+                    <Logo />
+
                     <Menu stackable>
                         <Menu.Item as={Link} to="/" name='shorten' onClick={this.handleItemClick} >
                             <Image src={userData.Picture} alt='user profile' circular size='mini' />
                         </Menu.Item>
-                        <Menu.Item name='shorten' active={activeItem === 'shorten'} onClick={this.handleItemClick} as={Link} to="/">
+                        <Menu.Item name='shorten' className='send' active={activeItem === 'shorten'} onClick={this.handleItemClick} as={Link} to="/">
                             Shorten
                         </Menu.Item>
-                        <Menu.Item name='ShareX' active={activeItem === 'ShareX'} onClick={this.handleItemClick} as={Link} to="/sharex">
+                        {/* <Menu.Item name='ShareX' active={activeItem === 'ShareX'} onClick={this.handleItemClick} as={Link} to="/sharex">
                             ShareX
-                        </Menu.Item>
+                        </Menu.Item> */}
                         <Menu.Item name='recent' active={activeItem === 'recent'} onClick={this.handleItemClick} as={Link} to="/recent">
                             Recent URLs
                         </Menu.Item>
                         <Menu.Item name='lookup' active={activeItem === 'lookup'} onClick={this.handleItemClick} as={Link} to="/lookup">
                             Lookup
                         </Menu.Item>
-                        <Menu.Item name='about' active={activeItem === 'about'} onClick={this.handleItemClick} as={Link} to={{
+                        {/* <Menu.Item name='about' active={activeItem === 'about'} onClick={this.handleItemClick} as={Link} to={{
                             pathname: "/about",
                             state: { info }
                         }}>
                             About
-                        </Menu.Item>
+                        </Menu.Item> */}
                           <Menu.Menu position='right'>
                             {userData.Name && <Menu.Item>{userData.Name}</Menu.Item>}
                             {Array.isArray(info.providers) && !info.providers.includes("proxy") &&
@@ -182,8 +188,8 @@ export default class BaseComponent extends Component {
                           </Menu.Menu>
                     </Menu>
                     <Route exact path="/" component={Home} />
-                    <Route path="/about" render={() => <About info={info} />} />
-                    <Route path="/ShareX" component={ShareX} />
+                    {/* <Route path="/about" render={() => <About info={info} />} /> */}
+                    {/* <Route path="/ShareX" component={ShareX} /> */}
                     <Route path="/Lookup" component={Lookup} />
                     <Route path="/recent" component={Recent} />
                     <Route path="/visitors/:id" component={Visitors} />

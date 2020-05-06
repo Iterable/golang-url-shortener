@@ -4,14 +4,21 @@
 .react-datepicker__time-container .react-datepicker__time .react-datepicker__time-box ul.react-datepicker__time-list {
     padding: 0 0;
 }
-.send {
+
+.lookup-form .ui.label, .lookup-form button.button {
     background-color: #00c7f878;
     color: #000;
     transition: ease-in-out .2s;
 }
 
-.send:hover {
+.lookup-form button.button:hover {
     background-color: #00c7f8e0;
+    color: #000;
+    transition: ease-in-out .2s;
+}
+
+.lookup-form .ui.label {
+    background-color: rgba(255, 20, 70, 0.30);
     color: #000;
     transition: ease-in-out .2s;
 }
